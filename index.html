@@ -22,14 +22,25 @@
             function playRound(playerSelection, computerSelection) {
               switch (playerSelection, computerSelection) {
                 case "rock", "Paper":
-                  return "You lose! paper beats rock!";
+                  return "You lose! Paper beats Rock!";
                   break;
                 case "paper", "Rock":
-                  return "You Win! paper beats rock!";
+                  return "You Win! Paper beats Rock!";
+                  break;
+                case "scissors", "Paper":
+                  return "You win! Scissors beats Paper!";
                   break;
                 case "rock", "Scissors":
                   return "You win! Rock beats Scissors!";
                   break;
+                case "paper", "Scissors":
+                  return "You lose! Scissors beats Paper";
+                  break;
+                case "scissors", "Rock":
+                  return "You lose! Rock beats Scissors";
+                  break;
+                default:
+                  return "No winner. Try Again!"
               }
 
             }
