@@ -19,6 +19,24 @@
               } 
             }
         
+            function playRound(playerSelection, computerSelection) {
+              switch (playerSelection, computerSelection) {
+                case "rock", "Paper":
+                  return "You lose! paper beats rock!";
+                  break;
+                case "paper", "Rock":
+                  return "You Win! paper beats rock!";
+                  break;
+                case "rock", "Scissors":
+                  return "You win! Rock beats Scissors!";
+                  break;
+              }
+
+            }
+            
+            let playerInput = window.prompt("Rock, Paper, Or Scissors").toLowerCase();
+            let computerInput = computerPlay();
+            console.log(playRound(playerInput, computerInput))
         
         </script>
 
