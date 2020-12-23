@@ -20,36 +20,33 @@
             }
         
             function playRound(playerSelection, computerSelection) {
-              switch (playerSelection, computerSelection) {
-                case "rock", "Paper":
+                if(playerSelection === "rock" && computerSelection === "Paper"){
                   console.log("You lose! Paper beats Rock!");
                   return 1;
-                  break;
-                case "paper", "Rock":
+                };
+                if(playerSelection === "paper" && computerSelection === "Rock"){
                   console.log("You Win! Paper beats Rock!");
                   return 0;
-                  break;
-                case "scissors", "Paper":
+                };
+                if(playerSelection === "scissors" && computerSelection === "Paper"){
                   console.log("You win! Scissors beats Paper!");
                   return 0;
-                  break;
-                case "rock", "Scissors":
+                };
+                if(playerSelection === "rock" && computerSelection === "Scissors"){
                   console.log("You win! Rock beats Scissors!");
                   return 0;
-                  break;
-                case "paper", "Scissors":
+                };
+                if(playerSelection === "paper" && computerSelection === "Scissors"){
                   console.log("You lose! Scissors beats Paper");
                   return 1;
-                  break;
-                case "scissors", "Rock":
+                };
+                if(playerSelection === "scissors" && computerSelection === "Rock"){
                   console.log("You lose! Rock beats Scissors");
                   return 1;
-                  break;
-                default:
-                  return "Try Again!"
-              }
-
-            }
+                } else {
+                  console.log("Try Again!");
+                };  
+            };
 
             function displayWinner(playWins, compWins) {
               if (playWins > compWins) {
@@ -79,7 +76,7 @@
                 } 
                 console.log("playerWins: " + playerWins + " computerWins: " + computerWins)
               }
-              displayWinner(playerWins, ComputerWins)
+              displayWinner(playerWins, computerWins)
             }
 
             game()
