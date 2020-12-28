@@ -1,8 +1,11 @@
 <!Doctype HTML>
+<html>
 <head>
   <link rel="stylesheet" href="RPS.css">
 </head>
     <body>
+      <div class="scoreboard">
+      </div>
       <div class="message">
         Play On!
       </div>
@@ -60,17 +63,22 @@
                 };  
             };
 
-            function game () {
-              if (playRound(playerInput, computerInput) === 1) {
+            const score = document.querySelector(".scoreboard");
+            let computerWins = 0
+            let playerWins = 0
+            score.textContent = "playerWins: " + playerWins + " computerWins: " + computerWins;
+
+            function game (gameResult) {
+              if (gameResult === 1) {
                 ++computerWins;
               }
-              if (playRound(playerInput, computerInput) === 0) {
+              if (gameResult === 0) {
                 ++playerWins;
               } 
-                console.log("playerWins: " + playerWins + " computerWins: " + computerWins)
-              }
-              displayWinner(playerWins, computerWins)
-            }
+              score.textContent = "playerWins: " + playerWins + " computerWins: " + computerWins;
+              showScore(playerWins, computerWins);
+              displayWinner(playerWins, computerWins);
+              };
 
             function showScore (player, computer) {
               
@@ -81,20 +89,23 @@
             }
 
             function displayWinner(playWins, compWins) {
-              if (playWins > compWins) {
-                console.log("You won the 5 game series!")
+              if (playWins > compWins && playWins >= 5) {
+                result.textContent = "You won the 5 game series!";
               }
-              else if (compWins > playWins) {
-                console.log("You lost the 5 game series!")
-              } else {
-                console.log("You both lost!")
-              }
+              if (compWins > playWins && compWins >= 5) {
+                result.textContent = "You lost the 5 game series!";
+              } 
+              showScore(playWins, compWins);
             }
            
 
             const playerOptions = document.querySelectorAll(".choice");
             playerOptions.forEach((option) => {
-              option.addEventListener('click', () => playRound(option.textContent, computerPlay()))});
+              option.addEventListener('click', () => {
+                playRound(option.textContent, computerPlay());
+                game(playRound(option.textContent, computerPlay()));
+              });
+            });
         </script>
     </body>
 </html>
