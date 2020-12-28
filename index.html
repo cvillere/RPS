@@ -28,51 +28,45 @@
                   break;
               } 
             }
+
+            const result = document.querySelector(".message");
         
             function playRound(playerSelection, computerSelection) {
               if(playerSelection === "ROCK" && computerSelection === "Paper"){
-                console.log("You lose! Paper beats Rock!");
+                result.textContent = "You lose! Paper beats Rock!";
                 return 1;
               };
               if(playerSelection === "PAPER" && computerSelection === "Rock"){
-                console.log("You win! Paper beats Rock!");
+                result.textContent = "You win! Paper beats Rock!";
                 return 0;
               };
               if(playerSelection === "SCISSORS" && computerSelection === "Paper"){
-                console.log("You win! Scissors beats Paper!");
+                result.textContent = "You win! Scissors beats Paper!";
                 return 0;
               };
               if(playerSelection === "ROCK" && computerSelection === "Scissors"){
-                console.log("You win! Rock beats Scissors!");
+                result.textContent = "You win! Rock beats Scissors!";
                 return 0;
               };
               if(playerSelection === "PAPER" && computerSelection === "Scissors"){
-                console.log("You lose! Scissors beats Paper");
+                result.textContent = "You lose! Scissors beats Paper!";
                 return 1;
               };
               if(playerSelection === "SCISSORS" && computerSelection === "Rock"){
-                console.log("You lose! Rock beats Scissors");
+                result.textContent = "You lose! Rock beats Scissors!";
                 return 1;
               } else {
-                  console.log("Try Again!");
+                  result.textContent = "Try Again!";
                 };  
             };
 
-            /*
-
             function game () {
-              let computerWins = 0
-              let playerWins = 0
-
-              while (computerWins < 5 && playerWins < 5) {
-                let playerInput = window.prompt("Rock, Paper, Or Scissors").toLowerCase();
-                let computerInput = computerPlay();
-                if (playRound(playerInput, computerInput) === 1) {
-                  ++computerWins;
-                }
-                if (playRound(playerInput, computerInput) === 0) {
-                  ++playerWins;
-                } 
+              if (playRound(playerInput, computerInput) === 1) {
+                ++computerWins;
+              }
+              if (playRound(playerInput, computerInput) === 0) {
+                ++playerWins;
+              } 
                 console.log("playerWins: " + playerWins + " computerWins: " + computerWins)
               }
               displayWinner(playerWins, computerWins)
@@ -96,7 +90,7 @@
                 console.log("You both lost!")
               }
             }
-            */
+           
 
             const playerOptions = document.querySelectorAll(".choice");
             playerOptions.forEach((option) => {
