@@ -9,6 +9,14 @@
 
 }
 
+body {
+
+  background: url(https://i.pinimg.com/564x/bb/61/8d/bb618db7d825e2e03c8d86f781a65e06.jpg);
+  z-index: -10;
+  background-size: 100%;
+
+};
+
 .series {
 
   display: flex;
