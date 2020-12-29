@@ -11,7 +11,6 @@
       </div>
       <div class="series">
       </div>
-
       <div class="plays">
         <button class="start">Start Over</button>
         <button class="choice">ROCK</button>
@@ -102,18 +101,18 @@
               resetScore(playerWins, computerWins);
               match.textContent = "";
               result.textContent = "Play On!"
-              playerOptions.disabled = false;
+              playerOptions.forEach((btn) => {btn.disabled = false});
             });
 
             const match = document.querySelector(".series");
             function displayWinner(playWins, compWins) {
               if (playWins > compWins && playWins >= 5) {
                 match.textContent = "You won the 5 game series!";
-                playerOptions.disabled = true;
+                playerOptions.forEach((btn) => {btn.disabled = true});
               }
               if (compWins > playWins && compWins >= 5) {
                 match.textContent = "You lost the 5 game series!";
-                playerOptions.disabled = true;
+                playerOptions.forEach((btn) => {btn.disabled = true});
               }
             }; 
         </script>
