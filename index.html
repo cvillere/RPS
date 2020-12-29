@@ -102,18 +102,18 @@
               resetScore(playerWins, computerWins);
               match.textContent = "";
               result.textContent = "Play On!"
-              document.querySelectorAll(".choice").disabled = false;
+              playerOptions.disabled = false;
             });
 
             const match = document.querySelector(".series");
             function displayWinner(playWins, compWins) {
               if (playWins > compWins && playWins >= 5) {
                 match.textContent = "You won the 5 game series!";
-                document.querySelectorAll(".choice").disabled = true;
+                playerOptions.disabled = true;
               }
               if (compWins > playWins && compWins >= 5) {
                 match.textContent = "You lost the 5 game series!";
-                document.querySelectorAll(".choice").disabled = true;
+                playerOptions.disabled = true;
               }
             }; 
         </script>
