@@ -9,6 +9,8 @@
       <div class="message">
         Play On!
       </div>
+      <div class="series">
+      </div>
 
       <div class="plays">
         <button class="start">Start Over</button>
@@ -64,8 +66,8 @@
             };
 
             const score = document.querySelector(".scoreboard");
-            let computerWins = 0
-            let playerWins = 0
+            let computerWins = 0;
+            let playerWins = 0;
             score.textContent = "playerWins: " + playerWins + " computerWins: " + computerWins;
 
             function game (gameResult) {
@@ -76,34 +78,41 @@
                 ++playerWins;
               } 
               score.textContent = "playerWins: " + playerWins + " computerWins: " + computerWins;
-              showScore(playerWins, computerWins);
-              displayWinner(playerWins, computerWins);
               };
 
-            function showScore (player, computer) {
-              
+            function resetScore (player, computer) {
               if (player >= 5 || computer >= 5) {
-                let player = 0;
-                let computer = 0;
+                playerWins = 0;
+                computerWins = 0;
+                score.textContent = "playerWins: " + playerWins + " computerWins: " + computerWins;
               }
             }
+            const board = document.querySelector(".start");
+            board.addEventListener("click", () => {
+              resetScore(playerWins, computerWins);
+              match.textContent = "";
+              result.textContent = "Play On!"
+            });
 
+
+            const match = document.querySelector(".series");
             function displayWinner(playWins, compWins) {
               if (playWins > compWins && playWins >= 5) {
-                result.textContent = "You won the 5 game series!";
+                match.textContent = "You won the 5 game series!";
               }
               if (compWins > playWins && compWins >= 5) {
-                result.textContent = "You lost the 5 game series!";
-              } 
-              showScore(playWins, compWins);
-            }
+                match.textContent = "You lost the 5 game series!";
+              }
+            }; 
            
+//Got to figure out to how to return playerWins and computerWins to Zero
 
             const playerOptions = document.querySelectorAll(".choice");
             playerOptions.forEach((option) => {
               option.addEventListener('click', () => {
                 playRound(option.textContent, computerPlay());
                 game(playRound(option.textContent, computerPlay()));
+                displayWinner(playerWins, computerWins);
               });
             });
         </script>
