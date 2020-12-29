@@ -88,22 +88,6 @@
                 score.textContent = "playerWins: " + playerWins + " computerWins: " + computerWins;
               }
             }
-            const board = document.querySelector(".start");
-            board.addEventListener("click", () => {
-              resetScore(playerWins, computerWins);
-              match.textContent = "";
-              result.textContent = "Play On!"
-            });
-            
-            const match = document.querySelector(".series");
-            function displayWinner(playWins, compWins) {
-              if (playWins > compWins && playWins >= 5) {
-                match.textContent = "You won the 5 game series!";
-              }
-              if (compWins > playWins && compWins >= 5) {
-                match.textContent = "You lost the 5 game series!";
-              }
-            }; 
 
             const playerOptions = document.querySelectorAll(".choice");
             playerOptions.forEach((option) => {
@@ -112,6 +96,26 @@
                 game(playRound(option.textContent, computerPlay()));
               });
             });
+
+            const board = document.querySelector(".start");
+            board.addEventListener("click", () => {
+              resetScore(playerWins, computerWins);
+              match.textContent = "";
+              result.textContent = "Play On!"
+              document.querySelectorAll(".choice").disabled = false;
+            });
+
+            const match = document.querySelector(".series");
+            function displayWinner(playWins, compWins) {
+              if (playWins > compWins && playWins >= 5) {
+                match.textContent = "You won the 5 game series!";
+                document.querySelectorAll(".choice").disabled = true;
+              }
+              if (compWins > playWins && compWins >= 5) {
+                match.textContent = "You lost the 5 game series!";
+                document.querySelectorAll(".choice").disabled = true;
+              }
+            }; 
         </script>
     </body>
 </html>
