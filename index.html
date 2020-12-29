@@ -78,6 +78,7 @@
                 ++playerWins;
               } 
               score.textContent = "playerWins: " + playerWins + " computerWins: " + computerWins;
+              displayWinner(playerWins, computerWins);
               };
 
             function resetScore (player, computer) {
@@ -93,8 +94,7 @@
               match.textContent = "";
               result.textContent = "Play On!"
             });
-
-
+            
             const match = document.querySelector(".series");
             function displayWinner(playWins, compWins) {
               if (playWins > compWins && playWins >= 5) {
@@ -104,15 +104,12 @@
                 match.textContent = "You lost the 5 game series!";
               }
             }; 
-           
-//Got to figure out to how to return playerWins and computerWins to Zero
 
             const playerOptions = document.querySelectorAll(".choice");
             playerOptions.forEach((option) => {
               option.addEventListener('click', () => {
                 playRound(option.textContent, computerPlay());
                 game(playRound(option.textContent, computerPlay()));
-                displayWinner(playerWins, computerWins);
               });
             });
         </script>
